@@ -16,5 +16,8 @@
     "node": "~0.4.11"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+      "express": "2.5.5"
+    , "jade": ">= 0.0.1"
+  }
 }
