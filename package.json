@@ -6,7 +6,7 @@
   "homepage": "http://sketchjs.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dnvsfn/sketch.js.git"
+    "url": "git://github.com/ecarter/sketch.js.git"
   },
   "main": "index.js",
   "scripts": {
