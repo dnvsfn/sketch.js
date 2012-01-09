@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2011-08-19 A</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () {
+	
+	var b, 
+		destination, 
+		grid, 
+		speed = 0.05; // 0.0 = none, 1.0 = fastest
+	
+	var Box = function (location, size) {
+		this.location = location ? location : new Point();
+		this.size = size ? size : random(50, 150); // random size min and max
+		this.angle = 0;
+		this.fillColor = "rgba(255,0,0,0.6)";
+	};
+
+	Box.prototype = {
+		update: function () {
+			this.bounds();
+			if (destination !== undefined) {
+				var vector = Point.sub(destination, this.location);
+				vector = vector.mult(speed);
+				this.location.add(vector);
+			}
+		},
+		draw: function () {
+			push();
+			translate(this.location.x, this.location.y);
+			rotate(this.angle);
+			translate(-(this.size/2), -(this.size/2));
+			fill(this.fillColor);
+			square(0, 0, this.size);
+			pop();
+			
+			this.angle += 0.005;
+		},
+		bounds: function () {
+			var l = this.location,
+				s = this.size;
+			
+			if (l.x > $c.WIDTH + s) {
+				l.x = -s;
+			} else if (l.x < -s) {
+				l.x = $c.WIDTH + s;
+			}
+			if (l.y > $c.HEIGHT + s) {
+				l.y = -s;
+			} else if (l.y < -s) {
+				l.y = $c.WIDTH + s;
+			}
+		}
+	};
+	
+	$c.canvas.onmousedown = function (event) {
+		destination = $c.mouse;
+		console.log('new destination: ' + destination.x + ', ' + destination.y);
+	};
+	
+	function setup () {
+		grid = new Grid($c.WIDTH, $c.HEIGHT);
+		b = new Box($c.center);
+		
+		// $c.clear_screen = false;
+	};
+	
+	function draw () {
+		
+		opacity(Math.abs(Math.cos($c.frame/100)));
+				
+		grid.draw();
+		
+		// opacity(1);
+		
+		b.update();
+		b.draw();
+		
+		if ($c.frame%90==0) {
+			// destination = new Point(
+			// 	random($c.WIDTH), 
+			// 	random($c.HEIGHT)
+			// );
+			// destination = Point.random(new Point(200, 200));
+			// destination = Point.random([100,100], [200,200]);
+			// destination = Point.random(100, 120, 220, 320);
+			destination = Point.random();
+			
+			console.log('destination: ' + destination.x + ', ' + destination.y);
+		}
+	};
+	
+	Sketch.run(setup, draw);
+});
+
+</script>
+</body>
+</html>

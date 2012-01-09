@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2011-08-31 B</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () { 
+	
+	var p = new Point(20,20),
+		str = "The quick brown fox jumps over the lazy dog";
+	
+	font('bold 10px Helvetica Neue')
+	
+	for(var size = 10; size < 36; size+=2) {
+		
+		font.size = size + 'px';
+		console.log('font.size = ' + font.size);
+		text(font.size + ' - ' + str, p);
+		
+		p.add(new Point(0, size + 10));
+	}
+	
+});
+</script>
+</body>
+</html>

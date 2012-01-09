@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2011-08-27 C</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () { 
+	
+	var Orb = Particle.extend({
+		update: function () {
+			var acc = Point.random(-1,1);
+			this.velocity.add(acc);
+			this.location.add(this.velocity);
+			this.velocity.limit(10);
+			
+			if (this.radius < 1) {
+				this.removed = true;
+			} else {
+				this.radius -= 0.2;
+			}
+		},
+		draw: function () {
+			push();
+			// opacity(0.2);
+			fill(this.color);
+			stroke(false);
+			// stroke('black');
+			// strokeSize(2);
+			// console.log(this.radius);
+			circle(this.location, this.radius);
+			pop();
+		},
+		run: function () {
+			if (this.removed==false) {
+				// console.log('run()');
+				this.checkBounds();
+				this.update();
+				this.draw();
+			}
+		}
+	});
+	
+	var orbs = [];
+ 	
+	function addOrb (l) {
+		orbs.push(
+			new Orb({
+				location: l, 
+				velocity: new Point(),
+				radius: 20,
+				removed: false,
+				// color: Color.frame()
+				color: Color.frame(0.9, 0.2, 0.2)
+			})
+		);
+	};
+
+	$c.mouseDrag(function(){
+		addOrb($c.mouse);
+	});
+	
+	$c.clear_screen = false;
+	
+	var grid = new Grid($c.WIDTH, $c.HEIGHT);
+	// var p = $c.center;
+	
+	$c.play(function () {
+		
+		if ($c.frame==1) {
+			grid.draw();
+		}
+		
+		background('rgba(0,0,0,0.003)');
+		
+		if ($c.frame%10==0) {
+			addOrb(new Point(Math.cos($c.frame/1000) * $c.WIDTH, $c.center.y));
+			
+			// p.add(Point.random(-10,10));
+		}
+		
+		for (var i=0; i < orbs.length; i++) {
+			var o = orbs[i];
+			o.run();
+		};
+		
+		push();
+		opacity(0.02);
+		// background(Color.frame(0.8, 0.6, 0.3));
+		pop();
+	});
+	
+});
+</script>
+</body>
+</html>

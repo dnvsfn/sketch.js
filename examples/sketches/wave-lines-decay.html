@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2011-08-12 A</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () {
+	
+	var LINE_COUNT = 30,
+		center = $c.center,
+		line_spacing = $c.WIDTH/LINE_COUNT;
+	
+	background('black');
+	$c.clear_screen = false;
+	
+	function draw () {
+		
+		var p = new Point(0, center.y);
+		
+		background('rgba(0,0,0,0.01)');
+		stroke('red');
+		
+		for (var i=0; i < LINE_COUNT; i++) {
+			beginPath();
+			moveTo(p);
+
+			p = new Point(
+				i * line_spacing,
+				// (Math.cos(i) * Math.sin(i) * center.y) + center.y
+				(Math.cos($c.frame/(i+(LINE_COUNT/2))) * Math.sin($c.frame/100) * center.y) + center.y
+			);
+
+			lineTo(p);
+			endPath();
+		};
+		
+	};
+	
+	// draw();
+	
+	Sketch.run(draw);
+
+});
+
+</script>
+</body>
+</html>

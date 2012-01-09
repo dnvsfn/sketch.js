@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2011-08-23 B</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () { 
+	
+	var p1 = new Point();
+	console.log('p1: ' + p1.x + ', ' + p1.y);
+	
+	p1.add(new Point(100,100));
+	console.log('p1: ' + p1.x + ', ' + p1.y);
+		
+	var p2 = Point.add(p1, new Point(50,50));
+	console.log('p2: ' + p2.x + ', ' + p2.y);
+	
+	console.log('fillStyle: ' + $c.fillColor);
+	fill(false);
+	stroke('blue');
+	circle(p1, 10);
+	
+	console.log('fillStyle: ' + $c.fillColor);
+	fill('red');
+	stroke(false);
+	circle(p2, 20);
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2011-08-11 B</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="sketch.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () {
+	
+	function setup () {
+		start_x = $c.WIDTH / 2;
+		start_y = $c.HEIGHT / 2;
+
+		stroke('black');
+	};
+	
+	function draw () {
+		
+		var LINE_COUNT = 300,
+			line_spacing = ($c.WIDTH / LINE_COUNT),
+			centerY = ($c.HEIGHT/2),
+			line_length = (centerY-10);
+		
+		for (var i=0; i < LINE_COUNT; i++) {
+			var a, b, l;
+			
+			a = new Point(
+				i * line_spacing, 
+				$c.HEIGHT/2
+			);
+			b = new Point(
+				i * line_spacing, 
+				(Math.cos($c.frame/100) * Math.sin($c.frame/(i+(LINE_COUNT/2))) * line_length) + centerY
+			);
+			// stroke(i%2==0?'red':'black');
+			l = new Line(a, b);	
+		};
+	};
+	
+	Sketch.run(setup, draw);
+	
+});
+</script>
+</body>
+</html>

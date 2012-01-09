@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2011-08-15 B</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="sketch.js"></script>
+<script src="/javascripts/images.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+Sketch.create(function () {
+	
+	var images = [],
+		IMAGE_WIDTH = 80,
+		IMAGE_HEIGHT = IMAGE_WIDTH,
+		Mouse = Point();
+	
+	$c.clear_screen = false;
+	
+	function setup(){
+		for (var i=0; i < images_src.length; i++) {
+			
+			var p, s;
+			
+			p = new Point(
+				Math.random() * $c.WIDTH,
+				Math.random() * $c.HEIGHT
+			);
+			
+			s = new Size(
+				map(i, 0, images_src.length, 10, IMAGE_WIDTH),
+				map(i, 0, images_src.length, 10, IMAGE_HEIGHT)
+			);
+			
+			img = new Image();
+			img.onload = function(){
+				$c.context.drawImage(this, p.x, p.y, s.width, s.height);
+			}
+			img.src = images_src[i].url;
+
+			var speed = map(i, 0, images_src.length, 2.0, 0.01);
+
+			images.push({
+				location: p,
+				acceleration: new Point(),
+				velocity: new Point(),
+				speed: speed,
+				size: s,
+				image: img
+			});
+
+		};
+	};
+	
+	function draw(){
+		
+		background('rgba(0,0,0,0.01)');
+		
+		for (var i=0; i < images.length; i++) {
+			var img = images[i],
+				l = img.location,
+				s = img.size;
+			
+			img.acceleration = new Point(
+				Math.cos($c.frame / 100) + img.speed,
+				Math.sin($c.frame / 100) + img.speed
+			);
+			
+			var direction = new Point(
+				map($c.mouse.x, 0, $c.WIDTH, -2.0, 2.0),
+				map($c.mouse.y, 0, $c.HEIGHT, -2.0, 2.0)
+			);
+			
+			img.acceleration.add(direction);
+			img.velocity.add(img.acceleration);
+			img.location.add(img.velocity);
+			
+			// check bounds
+			if (l.x > $c.WIDTH + s.width) {
+				l.x = -s.width;
+			} else if (l.x < -s.width) {
+				l.x = $c.WIDTH + s.width;
+			} else {
+				l.x += img.velocity.x;
+			}
+			if (l.y < -s.height) {
+				l.y = $c.HEIGHT + s.height;
+			} else if (l.y > $c.HEIGHT + s.height) {
+				l.y = -s.height;
+			} else {
+				l.y += img.velocity.y;
+			}
+			
+			// draw image
+			$c.context.drawImage(
+				img.image, 
+				l.x, 
+				l.y, 
+				s.width, 
+				s.height
+			);
+			
+			// reset velocity
+			img.velocity = new Point();
+		};
+	};
+	
+	Sketch.run(setup,draw);
+	
+});
+
+</script>
+</body>
+</html>
