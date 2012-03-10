@@ -1,6 +1,6 @@
 # Sketch.js
 
-A Canvas Experimentation Library.
+A Javascript Canvas Experimentation API
 
 # About
 
