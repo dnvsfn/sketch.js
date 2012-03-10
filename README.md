@@ -1,53 +1,53 @@
 # Sketch.js
 
-A Javascript Canvas Experimentation API
+> A Javascript Canvas Experimentation API
 
-# About
+---
 
-  The following isn't intended to be preachy or personal, just a record
-  of how/why/when this project was started. This knowledge dump needs to
-  be committed for the future of the project. That being said...
+**Developer Note**
 
-## History
+> 2012/03/10
+> 
+> This code base is a proof of concept and here for archival purposes
+> only. No pull requests are being accepted on the `early-version` branch
+> at this time or planned for the future. Sketch.js is in the early
+> stages of being refactored in the hopes of being a fully functional
+> library with proper testing and documentation.
+> 
+> Refactoring progress can be found in the `refactor` branch.
 
-  Sketch.js started as a personal JS library for creating canvas experiments
-  in the browser. The early version is a hacked together _(not working in 
-  some areas)_ prototype specific to the `examples` sketches. 
-  
-  The early version is archived in the `early-version` git branch for reference.
-  
-  The first prototype of Sketch.js was started in August 2011, was slowly worked on
-  for about a month, than put on the back burner to pursue other projects to 
-  strengthen my JS skills in building what was becoming a fairly complex project.
-  
-  Over the last 5 months I've developed JS workflow I'm comfortable with, written
-  a handful of npm modules, and studied numerous design patterns. Finally feeling
-  comfortable with my toolkit, I am committed to this project again and hope to 
-  share it in the open as soon as it's mature enough.
+## About
 
-## Inspiration
+Sketch.js is a Javascript API for in interacting with canvas object. The
+API's focus is to provide easy-to-use methods for rapidly developing canvas
+"sketches". The name "Sketch.js" is not intended to represent drawing,
+illustration, or any visual context, but rather borrows from
+[Processing's](http://processing.org) concept of programs being sketches. 
 
-  Much of Sketch.js is directly inspired by [Processing](http://processing.org/)
-  by way of [Processing.js](http://processingjs.org) and the API borrows heavily 
-  from [Paper.js](http://paperjs.org) / [Scriptographer](http://scriptographer.org).
-  
-  Sketch.js would not be possible without all of these awesome projects. Each of
-  which has been a invaluable tool in learning computational drawing, programming
-  animation, and experimentation badassery.
-  
-  The turning point in forming Sketch.js as a project came from attending
-  [Eye Festival 2011](http://eyefestival.com). At the current time _(June 2011)_
-  I had taken a year long break from programming entirely to focus on 
-  illustration, design, and general creative arts. Feeling revived and totally
-  inspired by this game changing conference, I reentered my interest in programming
-  and began gather the resources in creating JS Canvas library.
+## Examples
 
-## Purpose
+* [basic](./examples/basic)
+* [events](./examples/events)
+* [images](./examples/images)
+* [particles](./examples/particles)
+* [path](./examples/path)
+* [type](./examples/type)
 
-  In its current state, Sketch.js is intended for nothing other than general 
-  experimentation with the html canvas element.
-  
-  Near-future versions will support the same _(or similarly refined)_ 
-  Sketch.js API for generating images via 
-  [node-canvas](https://github.com/LearnBoost/node-canvas).
+## Past
+
+* [Version History](./HISTORY.md)
+* [Origin, Inspiration, and Objective](./ABSTRACT.md)
+
+## Future
+
+> See [Sketch.js Development Roadmap](./FUTURE.md)
+
+## License
+
+> [![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/)
+> 
+> This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported
+License](http://creativecommons.org/licenses/by-sa/3.0/)
+
+_Copyright (C) 2011-2012 Erin Carter <hi@dnvsfn.com> ( <http://github.com/ecarter> )_  
 
