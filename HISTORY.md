@@ -1,9 +1,14 @@
-## Draft 2 - 2012-02-08
+## Draft 3.1 - 2012-02-09
+
+* All examples working
+* Updated docs
+
+## Draft 3 - 2012-02-08
 
 * Revised examples
 * Updated example server
 
-## Draft 3 - 2012-01-08
+## Draft 2 - 2012-01-08
 
 * Merged diverged code bases into new repository
 
