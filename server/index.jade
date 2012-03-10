@@ -5,7 +5,16 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body#home
-    ul
-      for sketch in sketches
-        li
-          a(href=sketch)= sketch
+    h1= title
+    #content
+      ul
+        each sketch in sketches
+          li
+            - if ( sketch.files )
+              strong= sketch.title
+              ul
+                each file in sketch.files
+                  li
+                    a(href=file.url)= file.name
+            - else
+              a(href=sketch.url)= sketch.name
