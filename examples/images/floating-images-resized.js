@@ -15,10 +15,10 @@ Sketch.create( { fullscreen: true }, function(){
     IMAGE_HEIGHT = 160,
     images = [],
     IMAGES = [
-      '../images/building.jpg',
-      '../images/chicken.jpg',
-      '../images/jonathan.jpg',
-      '../images/lu.jpg'
+      '/images/building.jpg',
+      '/images/chicken.jpg',
+      '/images/jonathan.jpg',
+      '/images/lu.jpg'
     ];
   
   var Pic = Particle.extend({
