@@ -26,21 +26,21 @@ illustration, or any visual context, but rather borrows from
 
 ## Examples
 
-* [basic](./examples/basic)
-* [events](./examples/events)
-* [images](./examples/images)
-* [particles](./examples/particles)
-* [path](./examples/path)
-* [type](./examples/type)
+* [basic](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/basic)
+* [events](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/events)
+* [images](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/images)
+* [particles](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/particles)
+* [path](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/path)
+* [type](https://github.com/dnvsfn/sketch.js/tree/early-version/examples/type)
 
 ## Past
 
-* [Version History](./HISTORY.md)
-* [Origin, Inspiration, and Objective](./ABSTRACT.md)
+* [Version History](https://github.com/dnvsfn/sketch.js/tree/early-version/HISTORY.md)
+* [Origin, Inspiration, and Objective](https://github.com/dnvsfn/sketch.js/tree/early-version/ABSTRACT.md)
 
 ## Future
 
-> See [Sketch.js Development Roadmap](./FUTURE.md)
+> See [Sketch.js Development Roadmap](https://github.com/dnvsfn/sketch.js/tree/early-version/FUTURE.md)
 
 ## License
 

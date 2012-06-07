@@ -1,3 +1,7 @@
+## 2012-06-07
+
+* Public release for [Eyeo Festival](http://eyeofestival.com) 2012
+
 ## Draft 3.1 - 2012-02-09
 
 * All examples working
